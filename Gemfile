@@ -7,6 +7,9 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 gem 'awesome_print'
 gem 'carrierwave'
+gem 'rails-i18n', '~> 5.1'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

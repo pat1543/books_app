@@ -4,12 +4,27 @@
     <title>BooksApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-between">
+      <h1><a href="/books" class="log">BooksApp</a></h1>
+      <div>
+      <% if I18n.locale.to_s == "en" %>
+        <%= link_to('日本語', :locale => 'ja') %>
+      <% else %>
+        <%= link_to('English', :locale => 'en') %>
+      <% end %>
+      </div>
+      </nav>
+  </header>
+  <div class="container">
+  <%= yield %>
+  </div>
+</body>
+
 </html>

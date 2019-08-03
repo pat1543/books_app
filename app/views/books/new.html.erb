@@ -1,5 +1,7 @@
-<h1>New Book</h1>
+<h1><%= t'.new book' %></h1>
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Back', books_path %>
+<div class="btn-return">
+  <%= link_to t('books.new.back'), books_path, class: "btn btn-outline-secondary" %>
+</div>
