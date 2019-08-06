@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = %w(lib)
 
-  spec.required_ruby_version = '>= 2.0.0'
+
 
   if RUBY_PLATFORM =~ /java/
     spec.platform = 'java'
