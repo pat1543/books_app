@@ -1,8 +1,3 @@
 <h1><%= t'.editing book' %></h1>
 
 <%= render 'form', book: @book %>
-
-<div class="btn-return">
-  <%= link_to t('books.show.show'), @book, class: "btn btn-outline-secondary" %>
-  <%= link_to t('books.show.back'), books_path, class: "btn btn-outline-secondary" %>
-</div>

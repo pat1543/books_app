@@ -7,7 +7,7 @@ ruby "2.6.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "awesome_print"
-gem "bootstrap", "~> 4.3.1"
+gem 'bootstrap'
 gem "carrierwave"
 gem "faker"
 gem "jquery-rails"
@@ -18,6 +18,7 @@ gem "rails-i18n", "~> 5.1"
 gem "rubocop"
 gem "rubocop-rails"
 gem "rubocop-performance"
+gem 'data-confirm-modal'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3"
 # Use Puma as the app server

@@ -11,37 +11,46 @@ ja:
       short: "%y/%m/%d %H:%M"
   books:
     index:
-      books: '本一覧'
-      title: 'タイトル'
-      memo: 'メモ' 
-      author: '著者'
-      picture: '写真'
-      edit: '編集'
-      show: '詳細'
-      destroy: '削除'
-      new book: '新規追加'
+      books: "本一覧"
+      title: "タイトル"
+      memo: "メモ"
+      author: "著者"
+      picture: "写真"
+      edit: "編集"
+      show: "詳細"
+      destroy: "削除"
+      confirm: "本当に削除してよろしいですか？"
+      cancel: "やめる"
+      commit: "削除する"
+      title: "削除の確認"
+      new book: "新規追加"
     show:
-      title: 'タイトル'
-      memo: 'メモ' 
-      author: '著者'
-      picture: '写真'
-      edit: '編集'
-      back: '戻る'
-      show: '詳細'
+      title: "タイトル"
+      memo: "メモ"
+      author: "著者"
+      picture: "写真"
+      edit: "編集"
+      back: "戻る"
+      show: "詳細"
     new:
-      back: '戻る'
-      new book: '新規追加'
+      back: "戻る"
+      new book: "新規追加"
     form:
-      picture: '画像'
-      upload: 'アップロード'
-      create books: '追加する'
+      picture: "画像"
+      upload: "アップロード"
+      create: "追加する"
     edit:
-      editing book: '編集'
+      editing book: "編集"
+    create:
+      success: "本が追加されました"
+    update:
+      success: "本が編集されました"
+    destroy:
+      success: "本が削除されました"
   activerecord:
     attributes:
       book:
-        title: 'タイトル'
-        memo: 'メモ'
-        author: '著者'
-        picture: '写真'
-
+        title: "タイトル"
+        memo: "メモ"
+        author: "著者"
+        picture: "写真"

@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  books:
+    create:
+      success: "Book was successfully created."
+    update:
+      success: "Book was successfully updated."
+    destroy:
+      success: "Book was successfully destroyed."
+    index:
+      title: "Are you sure?"
+      confirm: "Are you sure?"
+      cancel: "cancel"
+      commit: "destroy"
+    form:
+      create: "create a new book"
