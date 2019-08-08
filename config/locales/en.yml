@@ -38,9 +38,10 @@ en:
     destroy:
       success: "Book was successfully destroyed."
     index:
-      title: "Are you sure?"
+      warning: "Are you sure?"
       confirm: "Are you sure?"
       cancel: "cancel"
       commit: "destroy"
     form:
       create: "create a new book"
+    error_messages: "This form contains the following errors."

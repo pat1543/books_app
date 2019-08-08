@@ -1,7 +1,7 @@
 <% if @book.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(@book.errors.count, "error") %>.
+      <%= t('books.error_messages') %>
     </div>
     <ul>
     <% @book.errors.full_messages.each do |msg| %>
