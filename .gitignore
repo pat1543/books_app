@@ -72,3 +72,5 @@ doc/
 .idea
 bundler_stubs/
 test
+.generators
+.rakeTasks
