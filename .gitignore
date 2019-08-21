@@ -29,7 +29,7 @@ config/master.key
 
 ## Environment normalization:
 /.bundle
-vendor
+/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
@@ -64,13 +64,4 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-doc/
-*.swp
-*~
-.project
-.DS_Store
-.idea
-bundler_stubs/
-test
-.generators
-.rakeTasks
+/test
