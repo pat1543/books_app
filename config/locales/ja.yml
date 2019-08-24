@@ -1,0 +1,57 @@
+ja:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+  books:
+    error_messages: もう一度入力してください
+    index:
+      books: "本一覧"
+      title: "タイトル"
+      memo: "メモ"
+      author: "著者"
+      picture: "写真"
+      edit: "編集"
+      show: "詳細"
+      destroy: "削除"
+      confirm: "本当に削除してよろしいですか？"
+      cancel: "やめる"
+      commit: "削除する"
+      warning: "削除の確認"
+      new book: "新規追加"
+    show:
+      title: "タイトル"
+      memo: "メモ"
+      author: "著者"
+      picture: "写真"
+      edit: "編集"
+      back: "戻る"
+      show: "詳細"
+    new:
+      back: "戻る"
+      new book: "新規追加"
+    form:
+      picture: "画像"
+      upload: "アップロード"
+      create: "追加する"
+    edit:
+      editing book: "編集"
+    create:
+      success: "本が追加されました"
+    update:
+      success: "本が編集されました"
+    destroy:
+      success: "本が削除されました"
+  activerecord:
+    attributes:
+      book:
+        title: "タイトル"
+        memo: "メモ"
+        author: "著者"
+        picture: "写真"

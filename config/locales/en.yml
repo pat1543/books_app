@@ -28,6 +28,19 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  books:
+    create:
+      success: "Book was successfully created."
+    update:
+      success: "Book was successfully updated."
+    destroy:
+      success: "Book was successfully destroyed."
+    index:
+      warning: "Are you sure?"
+      confirm: "Are you sure?"
+      cancel: "cancel"
+      commit: "destroy"
+    form:
+      create: "create a new book"
+    error_messages: "This form contains the following errors."
