@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,36 +12,154 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import "bootstrap";
 
 .log,
 .log:hover {
-    color: rgb(119, 119, 115);
-    text-decoration: none;
-    display: block;
-    margin-left: 16px;
+  color: rgb(119, 119, 115);
+  text-decoration: none;
+  display: block;
+  margin-left: 16px;
 }
 
 #book-picture {
-    display: none;
+  display: none;
 }
 
 .btn-return {
-    margin-top: 7px;
-}@import "bootstrap";
+  margin-top: 7px;
+}
+
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: normal;
+  color: #777;
+}
+
+.profile {
+  margin: 30px 0 40px;
+}
+
+.nav-items {
+  margin-right: 30px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap";
 
 .log,
 .log:hover {
-    color: rgb(119, 119, 115);
-    text-decoration: none;
-    display: block;
-    margin-left: 16px;
+  color: rgb(119, 119, 115);
+  text-decoration: none;
+  display: block;
+  margin-left: 16px;
 }
 
 #book-picture {
-    display: none;
+  display: none;
 }
 
 .btn-return {
-    margin-top: 7px;
+  margin-top: 7px;
+}
+
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: normal;
+  color: #777;
+}
+
+.profile {
+  margin: 30px 0 40px;
+}
+
+.nav-items {
+  margin-right: 30px;
 }

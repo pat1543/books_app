@@ -5,14 +5,27 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 
 <body>
 <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-between">
-    <h1><a href="/books" class="log">BooksApp</a></h1>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <h1><a href="/" class="log">BooksApp</a></h1>
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item nav-items"><%= link_to "Users", users_path %></li>
+        <li class="nav-item nav-items"><%= link_to "Books", books_path %></li>
+        <li class="nav-item nav-items"><%= link_to "Edit profile", edit_user_registration_path %></li>
+        <li class="nav-item nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li class="nav-item nav-items"><%= link_to current_user.name, current_user %></li></span>
+      <% else %>
+        <li class="nav-item nav-items"><%= link_to "Sign up", new_user_registration_path %>
+        <li class="nav-item nav-items"><%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </ul>
     <div>
       <% if I18n.locale.to_s == "en" %>
         <%= link_to('日本語', :locale => 'ja') %>
@@ -22,12 +35,14 @@
     </div>
   </nav>
 </header>
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name %>">
-    <%= msg.html_safe %>
-  </div>
-<% end %>
+
 <div class="container py-5">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
   <%= yield %>
 </div>
 </body>
