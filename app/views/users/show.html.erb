@@ -10,6 +10,8 @@
 </div>
 
 <div>
-  <%= link_to t('.edit'), edit_user_registration_path(@user), class: "btn btn-primary"  %>
+  <% if current_user == @user %>
+    <%= link_to t('.edit'), edit_user_registration_path(@user), class: "btn btn-primary"  %>
+  <% end %>
   <%= link_to t('.back'), users_path, class: "btn btn-secondary" %>
   <div>

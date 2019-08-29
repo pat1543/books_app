@@ -10,9 +10,9 @@
 
 50.times do
   Book.create(
-      title: Faker::Name.name_with_middle,
-      memo: Faker::Name.name_with_middle,
-      author: Faker::Name.name_with_middle
+    title: Faker::Name.name_with_middle,
+    memo: Faker::Name.name_with_middle,
+    author: Faker::Name.name_with_middle
   )
 end
 
