@@ -16,8 +16,14 @@
   )
 end
 
-User.create(name: "aiueo", email: "admin@test.com", password: "password")
-User.create(name: "aiue", email: "satou@test.com", password: "password")
-User.create(name: "aiu", email: "suzuki@test.com", password: "password")
-User.create(name: "ai", email: "tanaka@test.com", password: "password")
-User.create(name: "a", email: "test@test.com", password: "password")
+50.times do
+  user = User.new(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    postal_code: Faker::Address.postcode,
+    address: Faker::Address.city,
+    introduction: Faker::Lorem.sentence,
+    password: "password"
+  )
+  user.save!
+end
