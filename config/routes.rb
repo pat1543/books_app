@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "users/index"
-  get "users/show"
   root "users#index"
   devise_for :users, controllers: {
       registrations: "users/registrations",
