@@ -24,6 +24,7 @@
       <% else %>
         <li class="nav-item nav-items"><%= link_to "Sign up", new_user_registration_path %>
         <li class="nav-item nav-items"><%= link_to "Login", new_user_session_path %>
+        <li class="nav-item nav-items"><%= link_to "Sign in with Github", user_github_omniauth_authorize_path %></li>
       <% end %>
     </ul>
     <div>
