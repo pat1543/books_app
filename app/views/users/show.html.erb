@@ -1,0 +1,17 @@
+<h1><%= t('.profile') %></h1>
+<div class="profile">
+  <ul class="list-group">
+    <li class="list-group-item"><%= t('activerecord.attributes.user.name') + "：#{@user.name}" %>
+    <li class="list-group-item"><%= t('activerecord.attributes.user.email') + "：#{@user.email}" %>
+    <li class="list-group-item"><%= t('activerecord.attributes.user.postal_code') + "：#{@user.postal_code}" %>
+    <li class="list-group-item"><%= t('activerecord.attributes.user.address') + "：#{@user.address}" %>
+    <li class="list-group-item"><%= t('activerecord.attributes.user.introduction') + "：#{@user.introduction}" %>
+      <ul>
+</div>
+
+<div>
+  <% if current_user == @user %>
+    <%= link_to t('.edit'), edit_user_registration_path(@user), class: "btn btn-primary"  %>
+  <% end %>
+  <%= link_to t('.back'), users_path, class: "btn btn-secondary" %>
+  <div>
