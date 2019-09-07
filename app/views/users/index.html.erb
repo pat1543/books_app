@@ -2,7 +2,10 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
+    <li class="mb-3">
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar.variant(resize:'100x100!').processed, class: "rounded-circle px-3" %>
+      <% end %>
       <%= link_to user.name, user %>
     </li>
   <% end %>
