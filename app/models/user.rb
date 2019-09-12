@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(github)
   validates :name, presence: true, length: { maximum: 50 }
   paginates_per 20
+  has_one_attached :avatar
 
   def self.create_unique_string
     SecureRandom.uuid
