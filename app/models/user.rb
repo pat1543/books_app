@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   paginates_per 20
   has_one_attached :avatar
+  has_many :books, dependent: :destroy
 
   def self.create_unique_string
     SecureRandom.uuid

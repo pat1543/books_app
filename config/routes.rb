@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root "users#index"
+  root "books#index"
   devise_for :users, controllers: {
       registrations: "users/registrations",
       sessions: "users/sessions",
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :users, only: [:index, :show]
+  resources :microposts, only: [:create, :destroy]
   scope "(:locale)" do
     resources :books
   end

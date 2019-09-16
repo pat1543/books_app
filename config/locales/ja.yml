@@ -17,6 +17,7 @@ ja:
       memo: "メモ"
       author: "著者"
       picture: "写真"
+      poster: "投稿者"
       edit: "編集"
       show: "詳細"
       destroy: "削除"
