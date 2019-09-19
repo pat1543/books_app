@@ -11,7 +11,7 @@ ja:
       short: "%y/%m/%d %H:%M"
   books:
     error_messages: もう一度入力してください
-    index:
+    book:
       books: "本一覧"
       title: "タイトル"
       memo: "メモ"
@@ -63,3 +63,13 @@ ja:
       next: "次 &rsaquo;"
       previous: "&lsaquo; 前"
       truncate: "&hellip;"
+  users:
+    show:
+      following: フォロー中
+      followers: フォロワー
+    users_controller:
+      following:
+        following: フォロー中
+      followers:
+        followers: フォロワー
+

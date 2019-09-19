@@ -44,3 +44,6 @@ en:
     form:
       create: "create a new book"
     error_messages: "This form contains the following errors."
+  users:
+    follow: follow
+    unfollow: unfollow
