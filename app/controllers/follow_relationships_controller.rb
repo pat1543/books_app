@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RelationshipsController < ApplicationController
+class FollowRelationshipsController < ApplicationController
   before_action :user_signed_in?
 
   def create
@@ -10,7 +10,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    user = Relationship.find(params[:id]).followed
+    user = FollowRelationship.find(params[:id]).followed
     current_user.unfollow(user)
     redirect_to user
   end

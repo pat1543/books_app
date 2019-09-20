@@ -8,17 +8,13 @@ Rails.application.routes.draw do
       passwords: "users/passwords",
       omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :users, only: [:index, :show]
-  resources :users do
-    member do
-      get :following, :followers
-    end
+  resources :users, only: [:index, :show] do
+    resources :followings, :followers, only: [:index], module: "users"
   end
-  resources :microposts, only: [:create, :destroy]
   scope "(:locale)" do
     resources :books
   end
-  resources :relationships,       only: [:create, :destroy]
+  resources :follow_relationships, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
