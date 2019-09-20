@@ -9,13 +9,13 @@
     <li class="list-group-item"><%= t('activerecord.attributes.user.introduction') + "：#{@user.introduction}" %>
   </ul>
   <% if current_user?(@user) %>
-  <a href="<%= following_user_path(@user) %>", class="mr-3">
+  <a href="<%= user_followings_path(@user) %>", class="mr-3">
     <strong>
       <%= @user.following.count %>
     </strong>
     <%= t('.following') %>
   </a>
-  <a href="<%= followers_user_path(@user) %>">
+  <a href="<%= user_followers_path(@user) %>">
     <strong>
       <%= @user.followers.count %>
     </strong>

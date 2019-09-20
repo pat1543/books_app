@@ -11,6 +11,21 @@ ja:
       short: "%y/%m/%d %H:%M"
   books:
     error_messages: もう一度入力してください
+    index:
+      books: "本一覧"
+      title: "タイトル"
+      memo: "メモ"
+      author: "著者"
+      picture: "写真"
+      poster: "投稿者"
+      edit: "編集"
+      show: "詳細"
+      destroy: "削除"
+      confirm: "本当に削除してよろしいですか？"
+      cancel: "やめる"
+      commit: "削除する"
+      warning: "削除の確認"
+      new book: "新規追加"
     book:
       books: "本一覧"
       title: "タイトル"
