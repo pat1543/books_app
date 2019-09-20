@@ -9,10 +9,10 @@ class User < ApplicationRecord
   paginates_per 20
   has_one_attached :avatar
   has_many :books, dependent: :destroy
-  has_many :active_relationships,  class_name:  "Relationship",
+  has_many :active_relationships,  class_name: "FollowRelationship",
            foreign_key: "follower_id",
            dependent:   :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
+  has_many :passive_relationships, class_name: "FollowRelationship",
            foreign_key: "followed_id",
            dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
