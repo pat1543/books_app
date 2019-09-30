@@ -1,37 +1,21 @@
-<div>
-<table class="table">
-  <thead>
-  <tr>
-    <th><%= t '.title' %></th>
-    <th><%= t '.memo' %></th>
-    <th><%= t '.author' %></th>
-    <th><%= t '.picture' %></th>
-    <th><%= t '.poster' %></th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @books.each do |book| %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.memo %></td>
-      <td><%= book.author %></td>
-      <td><%= image_tag book.picture.variant(resize:'100x100').processed if book.picture.attached? %></td>
-      <td><%= book.user.name %></td>
-      <td><%= link_to t('books.book.show'), book, class: "btn btn-outline-secondary" %></td>
-      <% if book.user == current_user %>
-        <td><%= link_to t('books.book.edit'), edit_book_path(book), class: "btn btn-outline-secondary" %></td>
-        <td>
-          <%= link_to t('books.book.destroy'), book, method: :delete, data:
-                  {confirm: t('books.book.confirm'),
-               cancel: t('books.book.cancel'),
-               commit: t('books.book.commit')}, title: t('books.book.warning'), class: "btn btn-outline-secondary" %>
-        </td>
-      <% end %>
-    </tr>
+<tbody>
+<tr>
+  <td><%= book.title %></td>
+  <td><%= book.memo %></td>
+  <td><%= book.author %></td>
+  <td><%= image_tag book.picture.variant(resize:'100x100').processed if book.picture.attached? %></td>
+  <td><%= book.user.name %></td>
+  <td><%= link_to t('books.book.show'), book, class: "btn btn-outline-secondary" %></td>
+  <% if book.user == current_user %>
+    <td><%= link_to t('books.book.edit'), edit_book_path(book), class: "btn btn-outline-secondary" %></td>
+    <td>
+      <%= link_to t('books.book.destroy'), book, method: :delete, data:
+          {confirm: t('books.book.confirm'),
+           cancel: t('books.book.cancel'),
+           commit: t('books.book.commit')}, title: t('books.book.warning'), class: "btn btn-outline-secondary" %>
+    </td>
   <% end %>
-  </tbody>
-</table>
-<%= paginate @books %>
+</tr>
+</tbody>
+
 </div>

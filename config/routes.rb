@@ -9,12 +9,13 @@ Rails.application.routes.draw do
       omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :users, only: [:index, :show] do
-    resources :followings, :followers, only: [:index], module: "users"
+    resources :followings, :followers, :books, :reports, :comments, only: [:index], module: "users"
   end
   scope "(:locale)" do
     resources :books
   end
   resources :relatives, only: [:create, :destroy]
+  resources :reports
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

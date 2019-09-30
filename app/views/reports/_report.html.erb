@@ -1,0 +1,24 @@
+<tbody>
+<tr>
+  <td style="width:10%">
+    <% if report.user.avatar.attached? %>
+      <%= image_tag report.user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
+    <% end  %>
+  </td style="width:15%">
+  <td><%= link_to report.title, report %>
+    <p>
+      Posted <%= time_ago_in_words(report.created_at) %> ago.
+    </p>
+  </td>
+  <td style="width:10%"><%= link_to t('books.book.show'), report, class: "btn btn-outline-secondary" %></td>
+  <% if report.user == current_user %>
+    <td style="width:10%"><%= link_to t('books.book.edit'), edit_report_path(report), class: "btn btn-outline-secondary" %></td>
+    <td style="width:10%">
+      <%= link_to t('books.book.destroy'), report, method: :delete, data:
+          {confirm: t('books.book.confirm'),
+           cancel: t('books.book.cancel'),
+           commit: t('books.book.commit')}, title: t('books.book.warning'), class: "btn btn-outline-secondary" %>
+    </td>
+  <% end %>
+</tr>
+</tbody>

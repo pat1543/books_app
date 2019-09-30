@@ -1,0 +1,13 @@
+<h2><%= link_to @report.user.name, @report.user %></h2>
+<p>
+  <strong><%= t '.title' %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= t '.content' %>:</strong>
+  <%= @report.content %>
+</p>
+
+<%= link_to t('reports.show.edit'), edit_report_path(@report), class: "btn btn-primary" if @report.user == current_user %>
+<%= link_to t('books.show.back'), reports_path, class: "btn btn-secondary" %>

@@ -71,6 +71,9 @@ ja:
         memo: "メモ"
         author: "著者"
         picture: "写真"
+      report:
+        title: "タイトル"
+        content: "内容"
   views:
     pagination:
       first: "&laquo; 最初"
@@ -87,4 +90,12 @@ ja:
         following: フォロー中
       followers:
         followers: フォロワー
-
+  reports:
+    new:
+      back: 戻る
+      new_report: 新規追加
+    show:
+      back: 戻る
+      edit: 編集
+    index:
+      reports: 日報一覧
