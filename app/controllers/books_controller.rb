@@ -2,8 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  # GET /books
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]  # GET /books
   # GET /books.json
   def index
     @books = Book.page(params[:page])
@@ -16,6 +15,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    @book = Book.new
     @book = current_user.books.build if user_signed_in?
   end
 
