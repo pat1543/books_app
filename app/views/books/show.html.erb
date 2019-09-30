@@ -19,5 +19,5 @@
   <%= image_tag @book.picture.variant(resize:'300x300').processed if @book.picture.attached? %>
 </p>
 
-<%= link_to t('books.show.edit'), edit_book_path(@book), class: "btn btn-outline-secondary" %>
+<%= link_to t('books.show.edit'), edit_book_path(@book), class: "btn btn-outline-secondary" if @book.user == current_user %>
 <%= link_to t('books.show.back'), books_path, class: "btn btn-outline-secondary" %>
