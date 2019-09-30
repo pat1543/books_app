@@ -17,6 +17,13 @@
 end
 
 50.times do
+  Report.create(
+    title: Faker::Name.name_with_middle,
+    content: Faker::Lorem.sentence,
+  )
+end
+
+50.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,

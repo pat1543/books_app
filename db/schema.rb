@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_044630) do
+ActiveRecord::Schema.define(version: 2019_09_30_075352) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2019_09_30_044630) do
     t.index ["followed_id"], name: "index_relatives_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relatives_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relatives_on_follower_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["user_id", "created_at"], name: "index_reports_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
