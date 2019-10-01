@@ -1,0 +1,8 @@
+<h1><%= t 'reports.edit.editing_report' %></h1>
+
+<%= render 'form', report: @report %>
+
+<div class="btn-return">
+  <%= link_to t('books.show.show'), @report, class: "btn btn-outline-secondary" %>
+  <%= link_to t('books.show.back'), reports_path, class: "btn btn-outline-secondary" %>
+</div>

@@ -17,13 +17,6 @@
 end
 
 50.times do
-  Report.create(
-    title: Faker::Name.name_with_middle,
-    content: Faker::Lorem.sentence,
-  )
-end
-
-50.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -39,6 +32,12 @@ users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.books.create!(title: Faker::Name.name_with_middle, memo: content, author: Faker::Name.name_with_middle) }
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.reports.create!(title: Faker::Name.name_with_middle, content: content) }
 end
 
 users = User.all
