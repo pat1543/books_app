@@ -47,3 +47,11 @@ en:
   users:
     follow: follow
     unfollow: unfollow
+    followers:
+      index:
+        followers: followers
+    followings:
+      index:
+        followings: followings
+    show_follow:
+      posts: posts：

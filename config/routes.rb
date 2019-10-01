@@ -14,7 +14,5 @@ Rails.application.routes.draw do
   scope "(:locale)" do
     resources :books
   end
-  resources :relatives, only: [:create, :destroy]
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :memberships, only: [:create, :destroy]
 end

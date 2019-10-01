@@ -82,9 +82,11 @@ ja:
     show:
       following: フォロー中
       followers: フォロワー
-    users_controller:
-      following:
-        following: フォロー中
-      followers:
+    followings:
+      index:
+        followings: フォロー中
+    followers:
+      index:
         followers: フォロワー
-
+    show_follow:
+      posts: 投稿数：
