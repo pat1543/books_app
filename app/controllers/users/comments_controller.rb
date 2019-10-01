@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 class Users::CommentsController < ApplicationController
+  before_action :set_commentable
+
   def index
     @user = User.find(params[:user_id])
-    @comments = @user.comments.page(params[:page])
+    @comments = @commentable.comments
     render "users/show_comment"
   end
+
+  private
+    def set_commentable
+      resource, id = request.path.split('/')[2,3]
+      @commentable = resource.singularize.classify.constantize.find(id)
+    end
 end

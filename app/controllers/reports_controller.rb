@@ -9,6 +9,9 @@ class ReportsController < ApplicationController
   end
 
   def show
+    @commentable = @report
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new
