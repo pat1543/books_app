@@ -102,3 +102,5 @@ ja:
       edit: 編集
     index:
       reports: 日報一覧
+    edit:
+      editing_report: 編集
