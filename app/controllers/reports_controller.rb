@@ -16,7 +16,6 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
-    @report = current_user.reports.build if user_signed_in?
   end
 
   def edit

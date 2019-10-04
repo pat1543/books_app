@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /ja|en/ do
-    resources :relatives, only: [:create, :destroy]
+    resources :memberships, only: [:create, :destroy]
   end
 
   scope "(:locale)", locale: /ja|en/ do

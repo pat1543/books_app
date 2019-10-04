@@ -1,5 +1,9 @@
-<h1 class="mb-5"><%= t 'books.index.books' %></h1>
-<div>
+<div class="text-right">
+  <%= link_to t('books.index.new book'), new_book_path, class: "btn btn-primary mb-4" %>
+</div>
+
+<h1><%= t 'books.index.books' %></h1>
+<div class="my-5">
   <table class="table">
     <thead>
     <tr>
@@ -15,4 +19,3 @@
   </table>
 </div>
 <%= paginate @books%>
-<%= link_to t('books.index.new book'), new_book_path, class: "btn btn-primary mt-4" %>
