@@ -29,8 +29,9 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /ja|en/ do
-    resources :books
+    resources :books do
       resources :comments
+    end
   end
 
   scope "(:locale)", locale: /ja|en/ do
