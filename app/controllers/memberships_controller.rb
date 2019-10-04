@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RelativesController < ApplicationController
+class MembershipsController < ApplicationController
   before_action :user_signed_in?
 
   def create
@@ -10,7 +10,7 @@ class RelativesController < ApplicationController
   end
 
   def destroy
-    user = Relative.find(params[:id]).followed
+    user = Membership.find(params[:id]).followed
     current_user.unfollow(user)
     redirect_to user
   end

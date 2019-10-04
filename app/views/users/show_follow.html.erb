@@ -2,5 +2,5 @@
 <h2>投稿数: <%= @user.books.count %></h2>
 <h3><%= @title %></h3>
 <% if @users.any? %>
-  <%= render "users/user" %>
+  <%= render partial: "users/user", collection: @users %>
 <% end %>

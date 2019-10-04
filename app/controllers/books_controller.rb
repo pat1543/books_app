@@ -16,7 +16,6 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    @book = current_user.books.build if user_signed_in?
   end
 
   # GET /books/1/edit
