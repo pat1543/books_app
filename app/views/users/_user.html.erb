@@ -1,12 +1,8 @@
-<ul class="users">
-  <% @users.each do |user| %>
-    <li class="mb-3">
-      <% if user.avatar.attached? %>
-        <%= image_tag user.avatar.variant(resize:'100x100').processed, class: "rounded-circle px-3" %>
-      <% end %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
-</ul>
-
-<%= paginate @users %>
+<tbody>
+<tr>
+  <td style="width:10%">
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
+    <% end  %>
+    <%= link_to user.name, user %>
+  </td style="width:15%">
