@@ -12,11 +12,9 @@
 <%= link_to t('reports.show.edit'), edit_report_path(@report), class: "btn btn-primary" if @report.user == current_user %>
 <%= link_to t('books.show.back'), reports_path, class: "btn btn-secondary" %>
 
-<% if @comment %>
-  <div>
-    <strong>Comment</strong>
-    <%= @commentable.comments %>
-  </div>
-<% end %>
-
-<%= render "comments/form" %>
+<div class="my-5">
+<table>
+  <%= render partial: "comments/comments", locals: {commentable: @report} %>
+</table>
+</div>
+<%= render partial: "comments/form", locals: {commentable: @report } %>

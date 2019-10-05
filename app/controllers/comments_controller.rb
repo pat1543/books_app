@@ -19,9 +19,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
-      redirect_to [@commentable, @comment], notice: 'Comment was successfully created.'
+      redirect_to @commentable, notice: 'Comment was successfully created.'
     else
       render :new
     end
@@ -37,7 +38,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-      redirect_to [@commentable, :comments], notice: 'Comment was successfully destroyed.'
+      redirect_to @commentable, notice: 'Comment was successfully destroyed.'
   end
 
   private

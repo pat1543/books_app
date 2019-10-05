@@ -1,0 +1,26 @@
+<h3>Comments</h3>
+<% commentable.comments.each do |comment| %>
+<tbody>
+<tr>
+  <td style="width:10%">
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
+    <% end  %>
+  </td style="width:15%">
+  <td><%= link_to comment.user.name, user_path %>
+    <p>
+      <%= comment.content %>
+    </p>
+  </td>
+  <% if comment.user == current_user %>
+    <td style="width:10%"><%= link_to t('books.book.edit'), [commentable, comment], class: "btn btn-outline-secondary" %></td>
+    <td style="width:10%">
+      <%= link_to t('books.book.destroy'), [commentable, comment], method: :delete, data:
+          {confirm: t('books.book.confirm'),
+           cancel: t('books.book.cancel'),
+           commit: t('books.book.commit')}, title: t('books.book.warning'), class: "btn btn-outline-secondary" %>
+    </td>
+  <% end %>
+</tr>
+</tbody>
+<% end %>
