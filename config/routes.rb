@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   end
 
   scope "(:locale)", locale: /ja|en/ do
+    resources :feeds, only: [:index]
+  end
+
+  scope "(:locale)", locale: /ja|en/ do
     resources :memberships, only: [:create, :destroy]
   end
 
