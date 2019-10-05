@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i(github)
   validates :name, presence: true, length: { maximum: 50 }
   paginates_per 20
+  default_scope -> { order(created_at: :desc) }
   has_one_attached :avatar
   has_many :books, dependent: :destroy
   has_many :active_relationships,  class_name: "Membership",

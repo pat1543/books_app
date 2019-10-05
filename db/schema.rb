@@ -13,6 +13,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_01_112748) do
 =======
 ActiveRecord::Schema.define(version: 2019_09_30_075352) do
@@ -22,6 +23,9 @@ ActiveRecord::Schema.define(version: 2019_09_30_225746) do
 =======
 ActiveRecord::Schema.define(version: 2019_10_01_112647) do
 >>>>>>> Fix: コメント機能の修正
+=======
+ActiveRecord::Schema.define(version: 2019_10_05_103356) do
+>>>>>>> Add: feeds機能を実装
 
 >>>>>>> Add: comment機能を実装
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -65,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_112647) do
     t.integer "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
