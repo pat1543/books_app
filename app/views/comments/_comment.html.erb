@@ -12,7 +12,7 @@
   </td>
   <td style="width:10%"><%= link_to t('books.book.show'), report, class: "btn btn-outline-secondary" %></td>
   <% if comment.user == current_user %>
-    <td style="width:10%"><%= link_to t('books.book.edit'), edit_comment_path(comment, class: "btn btn-outline-secondary" %></td>
+    <td style="width:10%"><%= link_to t('books.book.edit'), report_path(comment, class: "btn btn-outline-secondary" %></td>
     <td style="width:10%">
       <%= link_to t('books.book.destroy'), comment, method: :delete, data:
           {confirm: t('books.book.confirm'),

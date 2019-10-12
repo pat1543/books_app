@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @report = Report.find(params[:report_id])
   end
 
   def create
