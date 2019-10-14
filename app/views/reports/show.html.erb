@@ -1,11 +1,12 @@
 <h2><%= link_to @report.user.name, @report.user %></h2>
+<h3><%= t('users.reports.report') %></h3>
 <p>
-  <strong><%= t '.title' %>:</strong>
+  <strong><%= t 'reports.show.title' %>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong><%= t '.content' %>:</strong>
+  <strong><%= t 'reports.show.content' %>:</strong>
   <%= @report.content %>
 </p>
 

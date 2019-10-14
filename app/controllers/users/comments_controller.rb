@@ -4,8 +4,9 @@ class Users::CommentsController < ApplicationController
   before_action :set_commentable
 
   def index
-    @user = User.find(params[:user_id])
-    @comments = @commentable.comments
+    @user  = User.find(params[:user_id])
+    comments = Comment.where("user_id = ?", current_user.id)
+    @comments = comments.page(params[:page])
     render "users/show_comment"
   end
 

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @comments = @commentable.comments
+    @comments = Comment.page(params[:page])
   end
 
   def show
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to [@commentable, @comment], notice: 'Comment was successfully updated.'
+      redirect_to @commentable, notice: 'Comment was successfully updated.'
     else
       render :edit
     end

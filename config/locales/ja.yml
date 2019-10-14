@@ -74,6 +74,10 @@ ja:
       report:
         title: "タイトル"
         content: "内容"
+      comment:
+        content: 内容
+      user:
+        avatar: 画像
   views:
     pagination:
       first: "&laquo; 最初"
@@ -85,11 +89,26 @@ ja:
     show:
       following: フォロー中
       followers: フォロワー
+      profile: のプロフィール
     users_controller:
       following:
         following: フォロー中
       followers:
         followers: フォロワー
+    reports:
+      index: の日報一覧
+      report: 日報
+    show_book:
+      books: の本一覧
+      title: タイトル
+      memo: メモ
+      author: 著者
+      picture: 写真
+      poster: 投稿者
+    show_comment:
+      title: のコメント一覧
+    books:
+      book: 本
   reports:
     new:
       back: 戻る
@@ -97,7 +116,19 @@ ja:
     show:
       back: 戻る
       edit: 編集
+      posted: 投稿日時
+      ago: 前
+      title: タイトル
+      content: 内容
     index:
       reports: 日報一覧
     edit:
       editing_report: 編集
+  comments:
+    comments: コメント
+    content: 内容
+    form:
+      content: 内容
+    edit:
+      Editing Comment: コメントの編集
+      back: 戻る
