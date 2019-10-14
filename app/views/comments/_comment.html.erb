@@ -5,20 +5,10 @@
       <%= image_tag comment.user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
     <% end  %>
   </td style="width:15%">
-  <td><%= link_to comment.content, content %>
+  <td><%= link_to comment.content, "/#{comment.commentable_type.downcase.pluralize}/#{comment.commentable_id}" %>
     <p>
-      Posted <%= time_ago_in_words(report.created_at) %> ago.
+      <%= t('reports.show.posted') + ' ' + time_ago_in_words(comment.created_at) + t('reports.show.ago') %>
     </p>
   </td>
-  <td style="width:10%"><%= link_to t('books.book.show'), report, class: "btn btn-outline-secondary" %></td>
-  <% if comment.user == current_user %>
-    <td style="width:10%"><%= link_to t('books.book.edit'), report_path(comment, class: "btn btn-outline-secondary" %></td>
-    <td style="width:10%">
-      <%= link_to t('books.book.destroy'), comment, method: :delete, data:
-          {confirm: t('books.book.confirm'),
-           cancel: t('books.book.cancel'),
-           commit: t('books.book.commit')}, title: t('books.book.warning'), class: "btn btn-outline-secondary" %>
-    </td>
-  <% end %>
 </tr>
 </tbody>

@@ -43,8 +43,15 @@ en:
       commit: "destroy"
     form:
       create: "create a new book"
-    error_messages: "This form contains the following errors."
+      error_messages: "This form contains the following errors."
+    users:
+      follow: follow
+      unfollow: unfollow
+  reports:
+    index:
+      reports: "All Reports"
   users:
+<<<<<<< HEAD
     follow: follow
     unfollow: unfollow
     followers:
@@ -55,3 +62,20 @@ en:
         followings: followings
     show_follow:
       posts: posts：
+=======
+    show:
+      profile: "profile"
+    reports:
+      index: "'s reports"
+    comments:
+      index: "'s comments"
+    show_book:
+      books: "'s books"
+    show_comment:
+      title: "'s comments"
+    users_controller:
+      following:
+        following: following
+      followers:
+        followers: followers
+>>>>>>> Fix: i18nに対応させる
