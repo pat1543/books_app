@@ -21,3 +21,10 @@
 
 <%= link_to t('books.show.edit'), edit_book_path(@book), class: "btn btn-outline-secondary" if @book.user == current_user %>
 <%= link_to t('books.show.back'), books_path, class: "btn btn-outline-secondary" %>
+
+<div class="my-5">
+  <table>
+    <%= render partial: "comments/comments", locals: {commentable: @book} %>
+  </table>
+</div>
+<%= render partial: "comments/form", locals: {commentable: @book} %>
