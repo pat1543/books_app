@@ -1,6 +1,3 @@
-<h1>Editing Comment</h1>
-
+<h1><%= t('comments.edit.Editing Comment') %></h1>
 <%= render 'form' %>
-
-
-<%= link_to 'Back', @commentable %>
+<%= link_to t('comments.edit.back'), @commentable %>

@@ -1,7 +1,4 @@
-<div class="text-right">
-  <%= link_to t('books.index.new book'), new_comment_path, class: "btn btn-primary mb-4" %>
-</div>
-<h1 class="mb-5"><%= "#{@user.name}の" + t('comments.index.comments') %></h1>
+<h1 class="mb-5"><%= "#{@user.name}" + t('users.show_comment.title') %></h1>
 <table class="table">
   <%= render partial: "comments/comment", collection: @comments %>
 </table>

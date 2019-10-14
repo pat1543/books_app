@@ -1,4 +1,4 @@
-<h1><%= "#{@user.name}の" + t('.profile') %></h1>
+<h1><%= "#{@user.name}" + t('users.show.profile') %></h1>
 
 <%= render "users/show_list" %>
 
@@ -36,7 +36,7 @@
 
 <div>
   <% if current_user?(@user) %>
-    <%= link_to t('.edit'), edit_user_registration_path(@user), class: "btn btn-primary"  %>
+    <%= link_to t('.edit'), edit_user_registration_path, class: "btn btn-primary"  %>
   <% end %>
   <%= link_to t('.back'), users_path, class: "btn btn-secondary" %>
 </div>
