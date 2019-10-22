@@ -51,18 +51,4 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /ja|en/ do
     resources :comments
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  resources :memberships, only: [:create, :destroy]
-=======
-  resources :relatives, only: [:create, :destroy]
-  resources :reports
-=======
->>>>>>> Add: comment機能を実装
-
-=======
->>>>>>> Fix: usersコントローラのリファクタリング
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
->>>>>>> Add: 日報機能を追加
 end

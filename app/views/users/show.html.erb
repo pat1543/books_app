@@ -40,7 +40,4 @@
   <% end %>
   <%= link_to t('.back'), users_path, class: "btn btn-secondary" %>
 </div>
-  <% if @user.books.any? %>
-  <h1 class="py-3"><%= t('.posters') %></h1>
-  <%= render 'books/book' %>
-  <% end %>
+

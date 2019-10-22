@@ -51,18 +51,6 @@ en:
     index:
       reports: "All Reports"
   users:
-<<<<<<< HEAD
-    follow: follow
-    unfollow: unfollow
-    followers:
-      index:
-        followers: followers
-    followings:
-      index:
-        followings: followings
-    show_follow:
-      posts: posts：
-=======
     show:
       profile: "profile"
     reports:
@@ -78,4 +66,3 @@ en:
         following: following
       followers:
         followers: followers
->>>>>>> Fix: i18nに対応させる

@@ -10,31 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_10_01_112748) do
-=======
-ActiveRecord::Schema.define(version: 2019_09_30_075352) do
->>>>>>> Add: 日報機能を追加
-=======
-ActiveRecord::Schema.define(version: 2019_09_30_225746) do
-=======
-ActiveRecord::Schema.define(version: 2019_10_01_112647) do
->>>>>>> Fix: コメント機能の修正
-=======
 ActiveRecord::Schema.define(version: 2019_10_05_103356) do
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Add: feeds機能を実装
 
->>>>>>> Add: comment機能を実装
-=======
->>>>>>> Fix: rubocopにかけて修正
-=======
-
->>>>>>> Fix: usersコントローラのリファクタリング
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -67,9 +44,6 @@ ActiveRecord::Schema.define(version: 2019_10_05_103356) do
     t.index ["user_id", "created_at"], name: "index_books_on_user_id_and_created_at"
   end
 
-<<<<<<< HEAD
-  create_table "memberships", force: :cascade do |t|
-=======
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.string "commentable_type"
@@ -81,12 +55,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_103356) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
-<<<<<<< HEAD
-  create_table "relatives", force: :cascade do |t|
->>>>>>> Add: comment機能を実装
-=======
   create_table "memberships", force: :cascade do |t|
->>>>>>> Fix: コメント機能の修正
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
