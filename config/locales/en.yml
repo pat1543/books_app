@@ -52,7 +52,7 @@ en:
       reports: "All Reports"
   users:
     show:
-      profile: "profile"
+      profile: "'s profile"
     reports:
       index: "'s reports"
     comments:

@@ -2,8 +2,12 @@
   <%= link_to t('books.index.new book'), new_book_path, class: "btn btn-primary mb-4" %>
 </div>
 
-<h1><%= t 'books.index.books' %></h1>
-<div class="my-5">
+<% if controller.controller_name == "feeds" %>
+  <h1><%= "#{current_user.name}" + t('feeds.index') %></h1>
+<% else %>
+  <h1><%= t 'books.index.books' %></h1>
+<% end %>
+  <div class="my-5">
   <table class="table">
     <thead>
     <tr>
