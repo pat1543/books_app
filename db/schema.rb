@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -28,11 +26,15 @@ ActiveRecord::Schema.define(version: 2019_10_01_112647) do
 =======
 ActiveRecord::Schema.define(version: 2019_10_05_103356) do
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Add: feeds機能を実装
 
 >>>>>>> Add: comment機能を実装
 =======
 >>>>>>> Fix: rubocopにかけて修正
+=======
+
+>>>>>>> Fix: usersコントローラのリファクタリング
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -122,4 +124,5 @@ ActiveRecord::Schema.define(version: 2019_10_05_103356) do
     t.index ["id", "provider"], name: "index_users_on_id_and_provider", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end

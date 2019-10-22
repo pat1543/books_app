@@ -5,7 +5,7 @@ class Users::CommentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    comments = Comment.where("user_id = ?", current_user.id)
+    comments = Comment.where("user_id = ?", @user.id)
     @comments = comments.page(params[:page])
     render "users/show_comment"
   end

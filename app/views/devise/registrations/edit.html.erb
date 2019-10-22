@@ -64,5 +64,5 @@
 <h3><%= t('.cancel_my_account') %></h3>
 
 <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('books.index.confirm'),
-                                                                                                         cancel: t('books.index.cancel'),
+                                                                                                         cancel: t('books.index.cancel') } %>
 <%= link_to t('devise.shared.links.back'), :back, class: "btn btn-secondary" %>

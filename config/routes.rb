@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   end
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :memberships, only: [:create, :destroy]
 =======
   resources :relatives, only: [:create, :destroy]
@@ -60,6 +61,8 @@ Rails.application.routes.draw do
 =======
 >>>>>>> Add: comment機能を実装
 
+=======
+>>>>>>> Fix: usersコントローラのリファクタリング
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 >>>>>>> Add: 日報機能を追加
 end

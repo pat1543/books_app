@@ -1,6 +1,14 @@
 <h1><%= @user.name %></h1>
 <h2><%= t(".posts") + @user.books.count.to_s %></h2>
-<h3><%= @title %></h3>
+
+<% if controller.controller_name == "followings" %>
+  <h3><%= t("users.users_controller.following.following") %></h3>
+<% else %>
+  <h3><%= t("users.users_controller.followers.followers") %></h3>
+<% end %>
+
 <% if @users.any? %>
-  <%= render partial: "users/user", collection: @users %>
+  <table class="table my-5">
+    <%= render partial: "users/user", collection: @users %>
+  </table>
 <% end %>
