@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     else
       render :new
     end
-   end
+  end
 
   def update
     if @comment.update(comment_params)

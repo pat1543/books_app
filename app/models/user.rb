@@ -9,13 +9,13 @@ class User < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   has_one_attached :avatar
   has_many :books, dependent: :destroy
-  has_many :active_relationships,  class_name: "Membership",
+  has_many :active_relationships, class_name: "Membership",
            foreign_key: "follower_id",
-           dependent:   :destroy
+           dependent: :destroy
   has_many :passive_relationships, class_name: "Membership",
            foreign_key: "followed_id",
-           dependent:   :destroy
-  has_many :following, through: :active_relationships,  source: :followed
+           dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :reports, dependent: :destroy
 
@@ -28,9 +28,9 @@ class User < ApplicationRecord
 
     unless user
       user = User.new(provider: auth.provider,
-                      uid:      auth.uid,
-                      name:     auth.info.name,
-                      email:    User.dummy_email(auth),
+                      uid: auth.uid,
+                      name: auth.info.name,
+                      email: User.dummy_email(auth),
                       password: Devise.friendly_token[0, 20]
       )
     end

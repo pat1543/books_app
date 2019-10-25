@@ -5,7 +5,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
@@ -22,7 +22,8 @@
         <li class="nav-item nav-items"><%= link_to "Following Books", feeds_path %></li>
         <li class="nav-item nav-items"><%= link_to "Edit profile", edit_user_registration_path %></li>
         <li class="nav-item nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        <li class="nav-item nav-items"><%= link_to current_user.name, current_user %></li></span>
+        <li class="nav-item nav-items"><%= link_to current_user.name, current_user %></li>
+        </span>
       <% else %>
         <li class="nav-item nav-items"><%= link_to "Sign up", new_user_registration_path %>
         <li class="nav-item nav-items"><%= link_to "Login", new_user_session_path %>

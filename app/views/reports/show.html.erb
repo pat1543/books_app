@@ -14,8 +14,8 @@
 <%= link_to t('books.show.back'), reports_path, class: "btn btn-secondary" %>
 
 <div class="my-5">
-<table>
-  <%= render partial: "comments/comments", locals: {commentable: @report} %>
-</table>
+  <table>
+    <%= render partial: "comments/comments", locals: {commentable: @report} %>
+  </table>
 </div>
-<%= render partial: "comments/form", locals: {commentable: @report } %>
+<%= render partial: "comments/form", locals: {commentable: @report} %>

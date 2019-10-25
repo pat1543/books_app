@@ -1,10 +1,10 @@
 <tbody>
 <tr>
-  <td style="width:10%">
+  <td>
     <% if user.avatar.attached? %>
-      <%= image_tag user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
-    <% end  %>
+      <%= image_tag user.avatar.variant(resize: '80x80').processed, class: "rounded-circle px-3" %>
+    <% end %>
     <%= link_to user.name, user %>
-  </td style="width:15%">
+  </td>
 </tr>
 </tbody>
