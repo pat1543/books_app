@@ -1,10 +1,10 @@
 <tbody>
 <tr>
-  <td style="width:10%">
+  <td>
     <% if comment.user.avatar.attached? %>
-      <%= image_tag comment.user.avatar.variant(resize:'80x80').processed, class: "rounded-circle px-3" %>
-    <% end  %>
-  </td style="width:15%">
+      <%= image_tag comment.user.avatar.variant(resize: '80x80').processed, class: "rounded-circle px-3" %>
+    <% end %>
+  </td>
   <td><%= link_to comment.content, "/#{comment.commentable_type.downcase.pluralize}/#{comment.commentable_id}" %>
     <p>
       <%= t('reports.show.posted') + ' ' + time_ago_in_words(comment.created_at) + t('reports.show.ago') %>
