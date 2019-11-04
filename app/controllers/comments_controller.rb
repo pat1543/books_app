@@ -24,7 +24,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @commentable, notice: "Comment was successfully created."
+      flash[:notice] = t("comments.create.success")
+      redirect_to @commentable
     else
       render :new
     end
@@ -32,7 +33,8 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @commentable, notice: "Comment was successfully updated."
+      flash[:notice] = t("comments.update.success")
+      redirect_to @commentable
     else
       render :edit
     end
@@ -40,7 +42,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @commentable, notice: "Comment was successfully destroyed."
+    flash[:notice] = t("comments.destroy.success")
+    redirect_to @commentable
   end
 
   private

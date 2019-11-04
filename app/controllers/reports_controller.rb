@@ -25,7 +25,8 @@ class ReportsController < ApplicationController
     @report = current_user.reports.build(report_params)
 
     if @report.save
-      redirect_to @report, success: t("reports.create.success")
+      flash[:notice] = t("reports.create.success")
+      redirect_to @report
     else
       render :new
     end
@@ -33,7 +34,8 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
-      redirect_to @report, success: t("reports.update.success")
+      flash[:notice] = t("reports.update.success")
+      redirect_to @report
     else
       render :edit
     end
@@ -41,7 +43,8 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.destroy
-    redirect_to reports_url, danger: t("reports.destroy.success")
+    flash[:notice] = t("reports.destroy.success")
+    redirect_to reports_url
   end
 
   private

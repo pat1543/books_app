@@ -31,7 +31,8 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     if @book.save
-      redirect_to @book, success: t("books.create.success")
+      flash[:notice] = t("books.create.success")
+      redirect_to @book
     else
       render :new
     end
@@ -41,7 +42,8 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
-      redirect_to @book, success: t("books.update.success")
+      flash[:notice] = t("books.update.success")
+      redirect_to @book
     else
       render :edit
     end
@@ -51,7 +53,8 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    redirect_to books_url, danger: t("books.destroy.success")
+    flash[:notice] = t("books.destroy.success")
+    redirect_to books_url
   end
 
   private

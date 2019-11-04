@@ -97,7 +97,7 @@ ja:
         followers: フォロワー
     reports:
       index: の日報一覧
-      report: 日報
+      report: 日報詳細
     show_book:
       books: の本一覧
       title: タイトル
@@ -108,7 +108,7 @@ ja:
     show_comment:
       title: のコメント一覧
     books:
-      book: 本
+      book: 本詳細
   reports:
     new:
       back: 戻る
@@ -124,14 +124,26 @@ ja:
       reports: 日報一覧
     edit:
       editing_report: 編集
+    create:
+      success: 日報が追加されました
+    update:
+      success: 日報が編集されました
+    destroy:
+      success: 日報が削除されました
   comments:
     comments: コメント
     content: 内容
     form:
       content: 内容
+      create: 追加する
     edit:
       Editing Comment: コメントの編集
       back: 戻る
+    create:
+      success: コメントが追加されました
+    update:
+      success: コメントが編集されました
+    destroy:
+      success: コメントが削除されました
   feeds:
     index: のフォローしている本一覧
-

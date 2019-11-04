@@ -18,7 +18,6 @@ gem "rails-i18n", "~> 5.1"
 gem "rubocop"
 gem "rubocop-rails"
 gem "rubocop-performance"
-gem "data-confirm-modal"
 gem "devise"
 gem "devise-i18n"
 gem "omniauth"
@@ -73,8 +72,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem "chromedriver-helper"
+  gem "webdrivers", "~> 3.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
