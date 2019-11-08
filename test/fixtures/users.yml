@@ -1,5 +1,4 @@
 soseki:
-  id: 1
   name: Natsume Soseki
   email: soseki@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
@@ -7,12 +6,6 @@ soseki:
   address: "東京都世田谷区二子玉川３−２−２９"
   introduction: "初めまして"
 akutagawa:
-  id: 2
   name: Akutagawa Ryunosuke
   email: akutagawa@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
-dazai:
-  id: 3
-  name: Dazai Osamu
-  email: dazai@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

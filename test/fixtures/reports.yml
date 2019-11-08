@@ -2,3 +2,4 @@ report1:
   title: first_report
   content: This is a report.
   user_id: 1
+  user: soseki

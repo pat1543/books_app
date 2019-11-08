@@ -3,23 +3,9 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  def setup
+  setup do
     @user = users(:soseki)
     @other_user = users(:akutagawa)
-  end
-
-  test "should be valid" do
-    assert @user.valid?
-  end
-
-  test "name should be present" do
-    @user.name = nil
-    assert_not @user.valid?
-  end
-
-  test "name should be within 50 letters" do
-    @user.name = "a" * 51
-    assert_not @user.valid?
   end
 
   test "dummy_email can be created" do

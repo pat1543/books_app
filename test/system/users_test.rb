@@ -3,11 +3,6 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:soseki)
-    sign_in(@user)
-  end
-
   test "visiting the index" do
     visit users_path
     assert_selector "h1", text: "ユーザー一覧"

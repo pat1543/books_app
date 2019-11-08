@@ -3,12 +3,6 @@
 require "application_system_test_case"
 
 class ReportsTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:soseki)
-    sign_in(@user)
-    @report = reports(:report1)
-  end
-
   test "visiting the index" do
     visit reports_path
     assert_selector "h1", text: "日報一覧"

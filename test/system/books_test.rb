@@ -3,12 +3,6 @@
 require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:soseki)
-    sign_in(@user)
-    @book = books(:botchan)
-  end
-
   test "visiting the index" do
     visit books_path
     assert_selector "h1", text: "本一覧"

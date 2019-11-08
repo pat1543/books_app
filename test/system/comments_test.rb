@@ -3,13 +3,6 @@
 require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:soseki)
-    sign_in(@user)
-    @book = books(:botchan)
-    @report = reports(:report1)
-  end
-
   test "visiting the book index" do
     visit user_comments_path(I18n.locale, @user)
     assert_selector "h1", text: "#{@user.name}のコメント一覧"
