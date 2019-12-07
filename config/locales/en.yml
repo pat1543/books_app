@@ -41,6 +41,7 @@ en:
       confirm: "Are you sure?"
       cancel: "cancel"
       commit: "destroy"
+      books: "All Books"
     form:
       create: "create a new book"
       error_messages: "This form contains the following errors."
