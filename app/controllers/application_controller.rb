@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   add_flash_types :success, :info, :warning, :danger
   before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

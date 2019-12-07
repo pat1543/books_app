@@ -8,7 +8,7 @@ default: &default
   host: <%= ENV['POSTGRES_HOST'] %>
 development:
   <<: *default
-  database: books_app_development
+  database: <%= ENV['POSTGRES_DB'] %>
 test:
   <<: *default
   database: <%= ENV['POSTGRES_TEST_DB'] %>
