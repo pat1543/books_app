@@ -1,11 +1,14 @@
 server "160.16.140.135", user: "seiji", roles: %w{app db web}
 
+set :stage, :staging
+
 set :ssh_options, {
   keys: %w(~/.ssh/id_rsa),
   forward_agent: true,
   auth_methods: %w(publickey),
   port: 54321
 }
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
