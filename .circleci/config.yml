@@ -11,10 +11,10 @@ jobs:
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
-          PG_USER: pgadmin
+          PG_USER: root
       - image: circleci/postgres:11.5
         environment:
-          POSTGRES_USER: pgadmin
+          POSTGRES_USER: root
           POSTGRES_DB: books_app_test
 
       # Specify service dependencies here if necessary
@@ -22,7 +22,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/books_app
 
     steps:
       - checkout
@@ -46,7 +46,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rails db:create db:migrate RAILS_ENV=test
+      - run:
+          name: Database setup
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
 
       # run tests!
       - run:
