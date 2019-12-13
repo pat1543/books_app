@@ -31,9 +31,9 @@ jobs:
           at: ~/project
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run:
           name: install dependencies
           command: |
@@ -42,7 +42,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" 
+          key: v1-dependencies-{{ checksum "Gemfile.lock"
 
   rubocop:
     <<: *defaults
@@ -53,14 +53,14 @@ jobs:
       - run:
           name: Rubocop
           command: bundle exec rubocop
-    
+
     minitest:
       <<: *defaults
       steps:
         - checkout
         - attach_workspace:
             at: ~/project
-        
+
         - run:
             name: Database setup
             command: |
@@ -69,13 +69,12 @@ jobs:
         - run:
             name: run tests
             command: bundle exec rails test
-  
-    # collect reports
-    - store_test_results:
-        path: /tmp/test-results
-    - store_artifacts:
-        path: /tmp/test-results
-        destination: test-results
+        # collect reports
+        - store_test_results:
+            path: /tmp/test-results
+        - store_artifacts:
+            path: /tmp/test-results
+            destination: test-results
 
 workflows:
   version: 2
