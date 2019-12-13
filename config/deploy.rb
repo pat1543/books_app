@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config valid only for current version of Capistrano
 lock "3.7.0"
 
@@ -8,11 +10,11 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :format, :pretty
 set :log_level, :debug
 set :rbenv_type, :system
-set :rbenv_ruby, File.read('.ruby-version').strip
-set :rbenv_path, '/opt/rbenv'
-append :linked_dirs, '.bundle'
+set :rbenv_ruby, File.read(".ruby-version").strip
+set :rbenv_path, "/opt/rbenv"
+append :linked_dirs, ".bundle"
 append :linked_files, "config/master.key"
-set :stage, 'production'
+set :stage, "production"
 
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
@@ -21,7 +23,7 @@ set :puma_access_log, "#{release_path}/log/puma.access.log"
 set :puma_error_log,  "#{release_path}/log/puma.error.log"
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
-set :puma_init_active_record, true 
+set :puma_init_active_record, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -45,9 +47,8 @@ append :linked_files, "config/database.yml", ".env"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
-set :default_env, { path: "/opt/ruby/bin:$PATH",
+set :default_env,  path: "/opt/ruby/bin:$PATH",
                     RAILS_MASTER_KEY: "86ca6c3caa1c9de46dcbb956751aa654"
-                  }
 
 # Default value for keep_releases is 5
 set :keep_releases, 5
@@ -57,19 +58,19 @@ namespace :deploy do
   task :confirm do
     on roles(:app) do
       puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
-      puts 'Are you sure? [y/n]'
-      ask :answer, 'n'
-      if fetch(:answer) != 'y'
-        puts 'deploy stopped'
+      puts "Are you sure? [y/n]"
+      ask :answer, "n"
+      if fetch(:answer) != "y"
+        puts "deploy stopped"
         exit
       end
     end
   end
 
-  desc 'Initial Deploy'
+  desc "Initial Deploy"
   task :initial do
     on roles(:app) do
-      invoke 'deploy'
+      invoke "deploy"
     end
   end
 

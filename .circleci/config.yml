@@ -3,64 +3,88 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2
+
+defaults: &defaults
+  working_directory: ~/project
+  docker:
+    # specify the version you desire here
+    - image: circleci/ruby:2.6.0-node-browsers-legacy
+      environment:
+        RAILS_ENV: test
+        POSTGRES_HOST: 127.0.0.1
+        PG_USER: postgres
+    - image: circleci/postgres:11.5
+      environment:
+        POSTGRES_USER: circleci
+        POSTGRES_DB: circle_test
+
+    # Specify service dependencies here if necessary
+    # CircleCI maintains a library of pre-built images
+    # documented at https://circleci.com/docs/2.0/circleci-images/
+    # - image: circleci/postgres:9.4
 jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.6.0-node-browsers-legacy
-        environment:
-          RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
-          PG_USER: postgres
-      - image: circleci/postgres:11.5
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: books_app_test
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/Downloads/rails_practice/books_app
-
+  bundle_install:
+    <<: *defaults
     steps:
       - checkout
-
-      # Download and cache dependencies
+      - attach_workspace:
+          at: ~/project
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
       - run:
           name: install dependencies
           command: |
             gem install bundler -v 2.0.2
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" 
 
-      # Database setup
+  rubocop:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
       - run:
-          name: Database setup
-          command: |
-            bundle exec rails db:create
-            bundle exec rails db:migrate
+          name: Rubocop
+          command: bundle exec rubocop
+    
+    minitest:
+      <<: *defaults
+      steps:
+        - checkout
+        - attach_workspace:
+            at: ~/project
+        
+        - run:
+            name: Database setup
+            command: |
+              bundle exec rails db:create
+              bundle exec rails db:migrate
+        - run:
+            name: run tests
+            command: bundle exec rails test
+  
+    # collect reports
+    - store_test_results:
+        path: /tmp/test-results
+    - store_artifacts:
+        path: /tmp/test-results
+        destination: test-results
 
-      # run tests!
-      - run:
-          name: run tests
-          command: |
-            DISABLE_SPRING=true bundle exec rails test
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+workflows:
+  version: 2
+  continuous-integration:
+    jobs:
+      - bundle_install
+      - minitest:
+          requires:
+            - bundle_install
+      - rubocop:
+          requires:
+            - bundle_install

@@ -8,27 +8,27 @@ AllCops:
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
   Exclude:
-    - '**/templates/**/*'
-    - '**/vendor/**/*'
-    - 'actionpack/lib/action_dispatch/journey/parser.rb'
-    - 'railties/test/fixtures/tmp/**/*'
-    - 'actionmailbox/test/dummy/**/*'
-    - 'actiontext/test/dummy/**/*'
-    - '**/node_modules/**/*'
+    - "**/templates/**/*"
+    - "**/vendor/**/*"
+    - "actionpack/lib/action_dispatch/journey/parser.rb"
+    - "railties/test/fixtures/tmp/**/*"
+    - "actionmailbox/test/dummy/**/*"
+    - "actiontext/test/dummy/**/*"
+    - "**/node_modules/**/*"
 
 Performance:
   Exclude:
-    - '**/test/**/*'
+    - "**/test/**/*"
 
 # Prefer assert_not over assert !
 Rails/AssertNot:
   Include:
-    - '**/test/**/*'
+    - "**/test/**/*"
 
 # Prefer assert_not_x over refute_x
 Rails/RefuteMethods:
   Include:
-    - '**/test/**/*'
+    - "**/test/**/*"
 
 # Prefer &&/|| over and/or.
 Style/AndOr:
@@ -84,7 +84,7 @@ Layout/EmptyLinesAroundModuleBody:
 Style/HashSyntax:
   Enabled: true
 
-Layout/IndentFirstArgument:
+Layout/FirstArgumentIndentation:
   Enabled: true
 
 # Method definitions after `private` or `protected` isolated calls need one
@@ -138,14 +138,14 @@ Style/FrozenStringLiteralComment:
   Enabled: true
   EnforcedStyle: always
   Exclude:
-    - 'actionview/test/**/*.builder'
-    - 'actionview/test/**/*.ruby'
-    - 'actionpack/test/**/*.builder'
-    - 'actionpack/test/**/*.ruby'
-    - 'activestorage/db/migrate/**/*.rb'
-    - 'activestorage/db/update_migrate/**/*.rb'
-    - 'actionmailbox/db/migrate/**/*.rb'
-    - 'actiontext/db/migrate/**/*.rb'
+    - "actionview/test/**/*.builder"
+    - "actionview/test/**/*.ruby"
+    - "actionpack/test/**/*.builder"
+    - "actionpack/test/**/*.ruby"
+    - "activestorage/db/migrate/**/*.rb"
+    - "activestorage/db/update_migrate/**/*.rb"
+    - "actionmailbox/db/migrate/**/*.rb"
+    - "actiontext/db/migrate/**/*.rb"
 
 Style/RedundantFreeze:
   Enabled: true
@@ -176,7 +176,7 @@ Layout/Tab:
   Enabled: true
 
 # Blank lines should not have any spaces.
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Enabled: true
 
 # No trailing whitespace.
@@ -184,7 +184,7 @@ Layout/TrailingWhitespace:
   Enabled: true
 
 # Use quotes for string literals when they are enough.
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: true
 
 Lint/AmbiguousOperator:
@@ -203,7 +203,7 @@ Lint/RequireParentheses:
 Lint/ShadowingOuterLocalVariable:
   Enabled: true
 
-Lint/StringConversionInInterpolation:
+Lint/RedundantStringCoercion:
   Enabled: true
 
 Lint/UriEscapeUnescape:

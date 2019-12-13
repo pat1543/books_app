@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 server "160.16.140.135", user: "seiji", roles: %w{app db web}
 
 set :stage, :staging
 
-set :ssh_options, {
+set :ssh_options,
   keys: %w(~/.ssh/id_rsa),
   forward_agent: true,
   auth_methods: %w(publickey),
   port: 54321
-}
 
 # server-based syntax
 # ======================
