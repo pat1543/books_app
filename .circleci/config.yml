@@ -7,16 +7,14 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.6.3-node-browsers
+      - image: circleci/ruby:2.6.0-node-browsers-legacy
         environment:
           RAILS_ENV: test
-          PGUSER: root
           POSTGRES_HOST: 127.0.0.1
       - image: circleci/postgres:11.5
         environment:
           POSTGRES_USER: pgadmin
           POSTGRES_DB: books_app_test
-          RAILS_ENV: test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
