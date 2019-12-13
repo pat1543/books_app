@@ -44,15 +44,15 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - persist_to_workspace:
-          root: ~/project
-          paths: vendor/bundle
+          root: .
+          paths: .
 
   rubocop:
     <<: *defaults
     steps:
       - checkout
       - attach_workspace:
-          at: ~/project
+          at: .
       - run:
           name: Rubocop
           command: bundle exec rubocop
@@ -62,7 +62,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/project
+          at: .
       - run:
           name: Database setup
           command: |
