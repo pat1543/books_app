@@ -38,9 +38,11 @@ jobs:
       - run:
           name: Bundle Install
           command: |
-            gem update --system
-            gem install bundler -v $BUNDLER_VERSION 
-            bundle install
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
       - save_cache:
           paths:
             - ./vendor/bundle
