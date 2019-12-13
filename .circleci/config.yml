@@ -44,7 +44,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - persist_to_workspace:
-          root: .
+          root: ~/project
           paths: vendor/bundle
 
   rubocop:
