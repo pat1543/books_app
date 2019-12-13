@@ -42,7 +42,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock"
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
   rubocop:
     <<: *defaults
@@ -60,7 +60,6 @@ jobs:
         - checkout
         - attach_workspace:
             at: ~/project
-
         - run:
             name: Database setup
             command: |
