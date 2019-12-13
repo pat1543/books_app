@@ -35,7 +35,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
-          name: install dependencies
+          name: bundle install
           command: |
             gem install bundler -v 2.0.2
             bundle install --jobs=4 --retry=3 --path vendor/bundle
@@ -54,26 +54,26 @@ jobs:
           name: Rubocop
           command: bundle exec rubocop
 
-    minitest:
-      <<: *defaults
-      steps:
-        - checkout
-        - attach_workspace:
-            at: ~/project
-        - run:
-            name: Database setup
-            command: |
-              bundle exec rails db:create
-              bundle exec rails db:migrate
-        - run:
-            name: run tests
-            command: bundle exec rails test
-        # collect reports
-        - store_test_results:
-            path: /tmp/test-results
-        - store_artifacts:
-            path: /tmp/test-results
-            destination: test-results
+  minitest:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Database setup
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
+      - run:
+          name: minitest
+          command: bundle exec rails test
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
 
 workflows:
   version: 2
