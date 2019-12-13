@@ -56,11 +56,11 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap (4.3.1)
+    bootstrap (4.4.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    builder (3.2.3)
+    builder (3.2.4)
     byebug (11.0.1)
     capistrano (3.7.0)
       airbrussh (>= 1.0.0)
@@ -115,8 +115,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.8.2)
-      devise (>= 4.6)
+    devise-i18n (1.9.0)
+      devise (>= 4.7.1)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -124,7 +124,7 @@ GEM
     ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
-    faker (2.8.0)
+    faker (2.8.1)
       i18n (>= 1.6, < 1.8)
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
@@ -185,7 +185,7 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -380,7 +380,7 @@ DEPENDENCIES
   webdrivers (~> 3.0)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.0p0
 
 BUNDLED WITH
    2.0.2
