@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Bundle Install
           command: |
-            gem update bundler
+            bundle update --bundler
             bundle install
       - save_cache:
           paths:
