@@ -14,8 +14,8 @@ jobs:
           PG_USER: root
       - image: circleci/postgres:11.5
         environment:
-          POSTGRES_USER: root
-          POSTGRES_DB: books_app_test
+          POSTGRES_USER: circleci
+          POSTGRES_DB: circle_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images

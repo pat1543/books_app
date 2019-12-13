@@ -11,7 +11,10 @@ development:
   database: books_app_development
 test:
   <<: *default
-  database: <%= ENV['POSTGRES_TEST_DB'] %>
+  host: localhost
+  username: circleci
+  port: 5432
+  database: circle_test
 production:
   <<: *default
   database: <%= ENV['POSTGRES_DB'] %>
