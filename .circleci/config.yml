@@ -10,8 +10,8 @@ jobs:
         environment:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.0.2
-          POSTGRES_USER: circleci
-          POSTGRES_DB: circle_test
+          POSTGRES_USER: pgadmin
+          POSTGRES_DB: books_app_test
 
       - image: circleci/postgres:11.5
 
