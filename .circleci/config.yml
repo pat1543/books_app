@@ -15,8 +15,8 @@ jobs:
 
       - image: circleci/postgres:11.5-alpine
         environment:
-          POSTGRES_USER: circleci
-          POSTGRES_DB: circleci
+          POSTGRES_USER: root
+          POSTGRES_DB: books_app_test
 
     working_directory: ~/repo
 
@@ -35,6 +35,13 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
+      - run:
+        name: Set up DB
+        command: |
+          bundle exec rails db:create db:schema:load --trace
+          bundle exec rails db:migrate
+        environment:
+          DATABASE_URL: "postgres://root@localhost:5432/books_app_test"
 
       - save_cache:
           paths:
