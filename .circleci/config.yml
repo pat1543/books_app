@@ -62,6 +62,8 @@ jobs:
           command: |
             bundle exec rails db:schema:load
             bundle exec rails test
+          environment:
+            DATABASE_URL: "postgres://pgadmin@localhost:5432/books_app_test"
 
       # collect reports
       - store_test_results:
