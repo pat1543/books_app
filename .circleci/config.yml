@@ -15,7 +15,7 @@ jobs:
 
       - image: circleci/postgres:11.5-alpine
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: circleci
           POSTGRES_DB: circleci
 
     working_directory: ~/repo
