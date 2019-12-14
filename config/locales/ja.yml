@@ -121,7 +121,7 @@ ja:
       title: タイトル
       content: 内容
     index:
-      reports: 日報の一覧
+      reports: 日報一覧
     edit:
       editing_report: 編集
     create:

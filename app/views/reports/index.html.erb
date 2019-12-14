@@ -2,7 +2,6 @@
   <%= link_to t('books.index.new book'), new_report_path, class: "btn btn-primary mb-4" %>
 </div>
 <h1><%= t('reports.index.reports') %></h1>
-<p>テストです</p>
 <table class="table my-5">
   <%= render partial: "reports/report", collection: @reports %>
 </table>
