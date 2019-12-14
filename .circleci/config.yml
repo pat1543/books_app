@@ -42,7 +42,7 @@ jobs:
             bundle exec rails db:create db:schema:load --trace
             bundle exec rails db:migrate
           environment:
-            DATABASE_URL: "postgres://root@localhost:5432/books_app_test"
+            DATABASE_URL: "postgres://pgadmin@localhost:5432/books_app_test"
 
       - save_cache:
           paths:
