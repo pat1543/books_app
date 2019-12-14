@@ -13,7 +13,7 @@ defaults: &defaults
         RAILS_ENV: test
         BUNDLER_VERSION: 2.0.2
         POSTGRES_HOST: 127.0.0.1
-        PG_USER: postgres
+        PG_USER: circleci
     - image: circleci/postgres:11.5
       environment:
         POSTGRES_USER: circleci
