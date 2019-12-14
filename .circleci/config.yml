@@ -5,10 +5,10 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/project
+  working_directory: ~/repo
   docker:
     # specify the version you desire here
-    - image: circleci/ruby:2.6.0-node-browsers-legacy
+    - image: circleci/ruby:2.6.3-node-browsers
       environment:
         RAILS_ENV: test
         BUNDLER_VERSION: 2.0.2
@@ -29,7 +29,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: .
+          at: ~/repo
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -43,6 +43,10 @@ jobs:
             sudo rm /usr/local/bin/bundle
             sudo rm /usr/local/bin/bundler
             sudo gem install bundler:2.0.2
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -56,7 +60,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: .
+          at: ~/repo
       - run:
           name: Rubocop
           command: bundle exec rubocop
@@ -66,7 +70,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: .
+          at: ~/repo
       - run:
           name: Database setup
           command: |
