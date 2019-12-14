@@ -61,12 +61,6 @@ jobs:
           name: test
           command: bundle exec rails test
 
-      # - run:
-      #     name: Database setup
-      #     command: |
-      #       bundle exec rails db:create
-      #       bundle exec rails db:migrate
-
       # collect reports
       - store_test_results:
           path: /tmp/test-results
