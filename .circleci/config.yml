@@ -11,10 +11,11 @@ jobs:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.0.2
           PGHOST: 127.0.0.1
+          PGUSER: pgadmin
 
       - image: circleci/postgres:11.5-alpine
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: pgadmin
           POSTGRES_DB: books_app_test
 
     working_directory: ~/repo
