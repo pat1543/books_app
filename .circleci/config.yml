@@ -10,11 +10,13 @@ jobs:
         environment:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.0.2
+          PGHOST: 127.0.0.1
+          PGUSER: root
 
       - image: circleci/postgres:11.5-alpine
         environment:
-          POSTGRES_USER: circleci
-          POSTGRES_DB: books_app_test
+          POSTGRES_USER: root
+          POSTGRES_DB: circleci
 
     working_directory: ~/repo
 
@@ -38,6 +40,10 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
 
       - run:
           name: rubocop
