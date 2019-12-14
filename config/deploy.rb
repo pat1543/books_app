@@ -58,7 +58,6 @@ namespace :deploy do
   task :confirm do
     on roles(:app) do
       puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
-      end
     end
   end
 
