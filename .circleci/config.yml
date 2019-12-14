@@ -47,10 +47,6 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
-
-      - run:
           name: rubocop
           command: bundle exec rubocop -a
 
