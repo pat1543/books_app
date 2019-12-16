@@ -3,68 +3,91 @@
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
 version: 2.1
-jobs:
-  build:
+
+executors:
+  default:
+    working_directory: ~/repo
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           RAILS_ENV: test
           BUNDLER_VERSION: 2.0.2
           DATABASE_URL: "postgres://pgadmin@localhost:5432/books_app_test"
-
       - image: circleci/postgres:11.5-alpine
         environment:
           POSTGRES_USER: pgadmin
           POSTGRES_DB: books_app_test
 
-    working_directory: ~/repo
-
+commands:
+  restore_gems:
     steps:
-      - checkout
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
+  install_gems:
+    steps:
       - run: gem install bundler:2.0.2
-
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle --clean
-
-      - run:
-          name: Set up DB
-          command: |
-            bundle exec rails db:create db:schema:load --trace
-            bundle exec rails db:migrate
-
+  save_gems:
+    steps:
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+jobs:
+  rubocop:
+    executor: default
+    steps:
+      - checkout
+      - restore_gems
+      - install_gems
+      - save_gems
       - run:
-          name: rubocop
-          command: bundle exec rubocop -a
-
+          name: Run rubocop
+          command: |
+            bundle exec rubocop -a
+  test:
+    executor: default
+    steps:
+      - checkout
+      - restore_gems
+      - install_gems
+      - save_gems
+      - run:
+          name: Set up DB
+          command: |
+            bundle exec rails db:create db:schema:load --trace
+            bundle exec rails db:migrate
       - run:
           name: test
           command: bundle exec rails test
-
+  deploy:
+    executor: default
+    steps:
       - add_ssh_keys:
           fingerprints:
             - "bc:f4:95:fa:ca:ec:9c:09:7d:c7:80:41:c9:55:d4:da"
-
       - run:
           name: capistrano deploy
           command: bundle exec cap production deploy
 
 workflows:
   version: 2.1
-
-  continuous-integration:
+  test-and-deploy:
     jobs:
-      - build
+      - rubocop
+      - test:
+          requires:
+            - rubocop
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
