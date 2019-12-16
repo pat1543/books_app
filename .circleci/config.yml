@@ -50,8 +50,7 @@ jobs:
       - save_gems
       - run:
           name: Run rubocop
-          command: |
-            bundle exec rubocop -a
+          command: bundle exec rubocop -a
   test:
     executor: default
     steps:
@@ -78,7 +77,6 @@ jobs:
           command: bundle exec cap production deploy
 
 workflows:
-  version: 2.1
   test-and-deploy:
     jobs:
       - rubocop
