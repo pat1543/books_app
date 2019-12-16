@@ -63,7 +63,7 @@ jobs:
       - save_gems
       - setup_db
       - run:
-          name: test
+          name: minitest
           command: bundle exec rails test
   deploy:
     executor: default
