@@ -52,9 +52,7 @@ jobs:
 
       - run:
           name: test
-          command: |
-            # bundle exec rails db:schema:load
-            bundle exec rails test
+          command: bundle exec rails test
 
       - add_ssh_keys:
           fingerprints:
