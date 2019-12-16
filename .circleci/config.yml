@@ -39,6 +39,13 @@ commands:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+  setup_DB:
+    steps:
+      - run:
+          name: setup_DB
+          command: |
+            bundle exec rails db:create db:schema:load --trace
+            bundle exec rails db:migrate
 
 jobs:
   rubocop:
@@ -58,17 +65,18 @@ jobs:
       - restore_gems
       - install_gems
       - save_gems
-      - run:
-          name: Set up DB
-          command: |
-            bundle exec rails db:create db:schema:load --trace
-            bundle exec rails db:migrate
+      - setup_DB
       - run:
           name: test
           command: bundle exec rails test
   deploy:
     executor: default
     steps:
+      - checkout
+      - restore_gems
+      - install_gems
+      - save_gems
+      - setup_DB
       - add_ssh_keys:
           fingerprints:
             - "bc:f4:95:fa:ca:ec:9c:09:7d:c7:80:41:c9:55:d4:da"
