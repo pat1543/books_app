@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Run rubocop
           command: bundle exec rubocop -a
-  test:
+  minitest:
     executor: default
     steps:
       - checkout
@@ -81,10 +81,10 @@ jobs:
           command: bundle exec cap production deploy
 
 workflows:
-  test-and-deploy:
+  minitest-and-deploy:
     jobs:
       - rubocop
-      - test:
+      - minitest:
           requires:
             - rubocop
       - deploy:
